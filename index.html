@@ -10,14 +10,12 @@
 </html>
 <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
 <script>
-const flexMessage = {
-  "type": "flex",
-  "altText": "初五爬山、唱歌 🥳",
-  "contents": {
-    "type": "bubble",
-    "hero": {
+// https://developers.line.biz/flex-simulator/
+const flexMessageContent = {
+  "type": "bubble",
+  "hero": {
     "type": "image",
-    "url": "https://duk.tw/CvEeKL.jpg",
+    "url": "https://duk.tw/TmyQyl.jpg",
     "size": "full",
     "aspectRatio": "20:13",
     "aspectMode": "cover",
@@ -38,41 +36,31 @@ const flexMessage = {
       },
       {
         "type": "box",
-        "layout": "baseline",
-        "margin": "md",
+        "layout": "vertical",
+        "margin": "sm",
+        "spacing": "sm",
         "contents": [
           {
-            "type": "icon",
-            "size": "sm",
-            "url": "https://developers-resource.landpress.line.me/fx/img/review_gold_star_28.png"
-          },
-          {
-            "type": "icon",
-            "size": "sm",
-            "url": "https://developers-resource.landpress.line.me/fx/img/review_gold_star_28.png"
-          },
-          {
-            "type": "icon",
-            "size": "sm",
-            "url": "https://developers-resource.landpress.line.me/fx/img/review_gold_star_28.png"
-          },
-          {
-            "type": "icon",
-            "size": "sm",
-            "url": "https://developers-resource.landpress.line.me/fx/img/review_gold_star_28.png"
-          },
-          {
-            "type": "icon",
-            "size": "sm",
-            "url": "https://developers-resource.landpress.line.me/fx/img/review_gold_star_28.png"
-          },
-          {
-            "type": "text",
-            "text": "5.0",
-            "size": "sm",
-            "color": "#999999",
-            "margin": "md",
-            "flex": 0
+            "type": "box",
+            "layout": "baseline",
+            "spacing": "sm",
+            "contents": [
+              {
+                "type": "text",
+                "text": "日期",
+                "color": "#aaaaaa",
+                "size": "sm",
+                "flex": 1
+              },
+              {
+                "type": "text",
+                "text": "2026/02/21（六）",
+                "wrap": true,
+                "color": "#666666",
+                "size": "sm",
+                "flex": 5
+              }
+            ]
           }
         ]
       },
@@ -270,7 +258,7 @@ const flexMessage = {
               },
               {
                 "type": "text",
-                "text": "人數與時間確定後先訂位，視情況調整",
+                "text": "⚠️ 目前尚無法訂位，將於 1/21 - 2/1 嘗試訂位",
                 "wrap": true,
                 "color": "#666666",
                 "size": "sm",
@@ -282,7 +270,7 @@ const flexMessage = {
       },
       {
         "type": "text",
-        "text": "團員 👥",
+        "text": "團員",
         "weight": "bold",
         "margin": "lg"
       },
@@ -406,7 +394,11 @@ const flexMessage = {
     ],
     "flex": 0
   }
-  }
+}
+const flexMessage = {
+  "type": "flex",
+  "altText": "初五爬山、唱歌 🥳",
+  "contents": flexMessageContent
 }
 async function main() {
   await liff.init({ liffId: "2008663808-Mp39q302" });
