@@ -11,8 +11,11 @@
 <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
 <script>
 const flexMessage = {
-  "type": "bubble",
-  "hero": {
+  "type": "flex",
+  "altText": "初五爬山、唱歌 🥳",
+  "contents": {
+    "type": "bubble",
+    "hero": {
     "type": "image",
     "url": "https://duk.tw/CvEeKL.jpg",
     "size": "full",
@@ -402,6 +405,7 @@ const flexMessage = {
       }
     ],
     "flex": 0
+  }
   }
 }
 async function main() {
