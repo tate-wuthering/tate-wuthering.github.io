@@ -414,13 +414,7 @@ async function main() {
     }
 
     try {
-      await liff.shareTargetPicker([
-        {
-          type: "flex",
-          altText: flexMessage.altText,
-          contents: flexMessage.contents
-        }
-      ]);
+      await liff.shareTargetPicker([flexMessage]);
 
       alert("已分享！");
     } catch (err) {
