@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LINE Flex Message 分享範例</title>
+  </head>
+  <body>
+    <button id="btnShareInvite">分享邀請給朋友</button>
+  </body>
+</html>
+<script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+<script>
+const flexMessage = {
+  type: "flex",
+  altText: "用餐邀請",
+  contents: YOUR_FLEX_JSON_HERE
+};
+
+async function main() {
+  await liff.init({ liffId: "2008663808-Mp39q302" });
+
+  document.querySelector("#btnShareInvite").addEventListener("click", async () => {
+    if (!liff.isLoggedIn()) {
+      liff.login();
+      return;
+    }
+
+    try {
+      await liff.shareTargetPicker([
+        {
+          type: "flex",
+          altText: flexMessage.altText,
+          contents: flexMessage.contents
+        }
+      ]);
+
+      alert("已分享！");
+    } catch (err) {
+      console.error(err);
+      alert("分享失敗");
+    }
+  });
+}
+
+main();
+</script>
